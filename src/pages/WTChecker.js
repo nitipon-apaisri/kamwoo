@@ -6,11 +6,17 @@ import { Input } from "antd";
 const { Search } = Input;
 const WTChecker = () => {
     const [wallet, setWallet] = useState("");
+
+    const [tokens, setTokens] = useState([]);
     const onSearch = (value) => {
         axios
             .get(`https://api-v2-mainnet.paras.id/token?creator_id=kamwoo.near&owner_id=${value}&collection_id=its-fine-by-kamwoonear`)
             .then((res) => {
-                console.log(res);
+                res.data.data.results.forEach((r) => {
+                    if (r.metadata.copies < 2) {
+                        setTokens((token) => [...token, r]);
+                    }
+                });
             })
             .catch((err) => console.log(err));
     };
@@ -25,6 +31,7 @@ const WTChecker = () => {
                     onSearch={(e) => {
                         onSearch(e);
                         setTimeout(() => {
+                            setTokens([]);
                             setWallet("");
                         }, 100);
                     }}
@@ -32,6 +39,12 @@ const WTChecker = () => {
                     enterButton
                     value={wallet}
                 />
+                <p>{tokens.length}</p>
+                {(() => {
+                    if (tokens.length > 2) {
+                        return <p>type-1</p>;
+                    }
+                })()}
             </div>
         </MainLayout>
     );
