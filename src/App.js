@@ -1,7 +1,10 @@
+import React from "react";
+import WTChecker from "./pages/WTChecker";
+import "./styles/styles.css";
 function App() {
     return (
         <div className="App">
-            <h1>KAMWOO</h1>
+            <WTChecker />
         </div>
     );
 }

@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+span.its-fine-highlight {
+  color: #f80097;
+}
+
+.wt-checker {
+  width: 800px;
+  max-width: 800px;
+  margin: 0;
+  position: absolute;
+  top: calc(50% - 80px);
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.wt-checker h1 {
+  font-weight: bolder;
+}
+.wt-checker .ant-input-search-button {
+  border-radius: 0 8px 8px 0 !important;
+  height: 40px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  letter-spacing: 0.04rem;
+  margin: 0 !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+  margin: 0;
+}
+body .main-layout {
+  width: 1440px;
+  max-width: 1440px;
+  margin: auto;
+  position: relative;
+  height: 100vh;
+}
+body .ant-input {
+  border-radius: 8px;
+  padding: 8px;
+}
+body footer {
+  background-color: #f80097;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 20px 40px;
+}
+body footer h1 {
+  color: white;
+  font-weight: bolder;
+}
+
+/*# sourceMappingURL=styles.css.map */
