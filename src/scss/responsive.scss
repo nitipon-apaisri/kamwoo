@@ -1,0 +1,38 @@
+@media screen and (max-width: 640px) {
+    .wt-checker .reward-img-container .result-wrapper .reward-img {
+        height: 200px;
+    }
+}
+@media screen and (max-width: 560px) {
+    .wt-checker .reward-img-container .result-wrapper .reward-img {
+        height: 180px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .wt-checker {
+        box-sizing: border-box;
+        height: auto;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        height: auto;
+        .reward-img-container {
+            box-sizing: border-box;
+            .result-wrapper {
+                .reward-img {
+                    margin: 16px auto;
+                    width: 160px;
+                    height: 160px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 360px) {
+    .wt-checker {
+        h1 {
+            font-size: 1.2rem;
+        }
+    }
+}

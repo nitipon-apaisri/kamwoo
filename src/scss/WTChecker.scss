@@ -13,9 +13,10 @@ span.its-fine-highlight {
     transform: translate(-50%, -50%);
     text-align: center;
     box-sizing: border-box;
-    padding: 16px;
+    padding: 16px 16px 40px 16px;
     h1 {
         font-weight: bolder;
+        margin-bottom: 16px !important;
     }
     .wt-divider {
         margin: 24px auto;

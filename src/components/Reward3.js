@@ -11,8 +11,8 @@ const Reward3 = () => {
     });
     return (
         <div className="reward3-container">
-            {width <= 400 ? (
-                <div>
+            {width <= 480 ? (
+                <div className="responsive-vertical">
                     <div className="result-wrapper">
                         <div className="reward-img" style={{ backgroundImage: `url(./img/default-character.jpeg)` }}></div>
                         <h4>A Default Characer</h4>

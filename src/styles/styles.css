@@ -14,10 +14,11 @@ span.its-fine-highlight {
   transform: translate(-50%, -50%);
   text-align: center;
   box-sizing: border-box;
-  padding: 16px;
+  padding: 16px 16px 40px 16px;
 }
 .wt-checker h1 {
   font-weight: bolder;
+  margin-bottom: 16px !important;
 }
 .wt-checker .wt-divider {
   margin: 24px auto;
@@ -42,9 +43,9 @@ span.its-fine-highlight {
   height: 10px;
   border-radius: 50%;
   position: relative;
-  animation: loader07-u5pnlk5 1s linear infinite;
+  animation: loader07-u5pnmef 1s linear infinite;
 }
-@keyframes loader07-u5pnlk5 {
+@keyframes loader07-u5pnmef {
   0% {
     box-shadow: 0 -17px 0 0 rgba(245, 2, 137, 0.05), 12px -12px 0 0 rgba(245, 2, 137, 0.1), 17px 0 0 0 rgba(245, 2, 137, 0.2), 12px 12px 0 0 rgba(245, 2, 137, 0.3), 0 17px 0 0 rgba(245, 2, 137, 0.4), -12px 12px 0 0 rgba(245, 2, 137, 0.6), -17px 0 0 0 rgba(245, 2, 137, 0.8), -12px -12px 0 0 #f50289;
   }
@@ -93,6 +94,40 @@ span.its-fine-highlight {
   font-weight: bolder;
 }
 
+@media screen and (max-width: 640px) {
+  .wt-checker .reward-img-container .result-wrapper .reward-img {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .wt-checker .reward-img-container .result-wrapper .reward-img {
+    height: 180px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .wt-checker {
+    box-sizing: border-box;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    height: auto;
+  }
+  .wt-checker .reward-img-container {
+    box-sizing: border-box;
+  }
+  .wt-checker .reward-img-container .result-wrapper .reward-img {
+    margin: 16px auto;
+    width: 160px;
+    height: 160px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .wt-checker h1 {
+    font-size: 1.2rem;
+  }
+}
 h1,
 h2,
 h3,
@@ -116,13 +151,14 @@ a {
 body {
   font-family: "Poppins", sans-serif !important;
   margin: 0;
+  height: 100%;
 }
 body .main-layout {
+  position: relative;
+  min-height: 100vh;
   width: 100%;
   max-width: 1440px;
   margin: auto;
-  position: relative;
-  height: 100vh;
 }
 body .ant-input {
   border-radius: 8px;
