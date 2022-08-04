@@ -5,7 +5,7 @@ const MainLayout = ({ children }) => {
             <div className="main-layout">{children}</div>
             <footer>
                 <div className="footer-container">
-                    <h1>kamwoo</h1>
+                    <h3>kamwoo</h3>
                 </div>
             </footer>
         </>
