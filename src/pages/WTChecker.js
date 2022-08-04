@@ -91,9 +91,9 @@ const WTChecker = () => {
                     enterButton
                     value={wallet}
                 />
-                <Divider className="wt-divider" />
                 {ownTokens.length !== 0 && (
                     <div className="reward-img-container">
+                        <Divider className="wt-divider" />
                         {(() => {
                             if (ownTokens.length >= 2 && ownPositiveTokens.length === 0) {
                                 return <Reward1 />;
@@ -107,8 +107,6 @@ const WTChecker = () => {
                         })()}
                     </div>
                 )}
-                {/* <p>Own ATK: {ownTokens.length} piece(s) </p>
-                <p>Own Positive ATK: {ownPositiveTokens.length} piece(s)</p> */}
             </div>
         </MainLayout>
     );
