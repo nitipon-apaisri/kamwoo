@@ -17,11 +17,38 @@ span.its-fine-highlight {
 .wt-checker h1 {
   font-weight: bolder;
 }
+.wt-checker .wt-divider {
+  margin: 24px auto;
+  min-width: 400px;
+  width: 400px;
+}
 .wt-checker .ant-input-search-button {
   border-radius: 0 8px 8px 0 !important;
   height: 40px;
   background-color: #f80097;
   border: transparent;
+}
+.wt-checker .reward-img-container .reward2-container,
+.wt-checker .reward-img-container .reward1-container {
+  display: flex;
+  justify-content: center;
+}
+.wt-checker .reward-img-container .reward2-container .reward-img,
+.wt-checker .reward-img-container .reward1-container .reward-img {
+  margin: 0 11px;
+}
+.wt-checker .reward-img-container .reward3-container {
+  display: flex;
+  justify-content: space-between;
+}
+.wt-checker .reward-img-container .reward-img {
+  width: 252px;
+  height: 252px;
+  border-radius: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 4px 20px rgba(168, 168, 168, 0.25);
 }
 
 h1,

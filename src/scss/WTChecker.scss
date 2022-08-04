@@ -14,10 +14,38 @@ span.its-fine-highlight {
     h1 {
         font-weight: bolder;
     }
+    .wt-divider {
+        margin: 24px auto;
+        min-width: 400px;
+        width: 400px;
+    }
     .ant-input-search-button {
         border-radius: 0 8px 8px 0 !important;
         height: 40px;
         background-color: #f80097;
         border: transparent;
+    }
+    .reward-img-container {
+        .reward2-container,
+        .reward1-container {
+            display: flex;
+            justify-content: center;
+            .reward-img {
+                margin: 0 11px;
+            }
+        }
+        .reward3-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .reward-img {
+            width: 252px;
+            height: 252px;
+            border-radius: 16px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: (0px 4px 20px rgba(168, 168, 168, 0.25));
+        }
     }
 }

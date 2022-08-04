@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MainLayout from "../layout";
-import { Input } from "antd";
+import { Divider, Input } from "antd";
+import Reward1 from "../components/Reward1";
+import Reward2 from "../components/Reward2";
+import Reward3 from "../components/Reward3";
 
 const { Search } = Input;
 const WTChecker = () => {
     const [wallet, setWallet] = useState("");
-    const [tokens, setTokens] = useState([]);
+    const [ownTokens, setOwnTokens] = useState([]);
     const [ownPositiveTokens, setOwnPositiveTokens] = useState([]);
     useEffect(() => {
         const positiveTokens = [
@@ -46,21 +49,24 @@ const WTChecker = () => {
             "417967",
             "433671",
         ];
-        for (let i = 0; i < tokens.length; i++) {
+        for (let i = 0; i < ownTokens.length; i++) {
             // console.log(tokens[i].token_series_id);
-            const findOwnPositiveTokens = positiveTokens.find((positiveToken) => positiveToken === tokens[i].token_series_id);
+            const findOwnPositiveTokens = positiveTokens.find((positiveToken) => positiveToken === ownTokens[i].token_series_id);
             if (findOwnPositiveTokens !== undefined) {
                 setOwnPositiveTokens((token) => [...token, findOwnPositiveTokens]);
             }
         }
-    }, [tokens]);
+    }, [ownTokens]);
+    useEffect(() => {
+        document.title = "It's fine reward checker";
+    }, []);
     const onSearch = (value) => {
         axios
             .get(`https://api-v2-mainnet.paras.id/token?creator_id=kamwoo.near&owner_id=${value}&collection_id=its-fine-by-kamwoonear`)
             .then((res) => {
                 res.data.data.results.forEach((r) => {
                     if (r.metadata.copies < 2) {
-                        setTokens((token) => [...token, r]);
+                        setOwnTokens((token) => [...token, r]);
                     }
                 });
             })
@@ -77,19 +83,32 @@ const WTChecker = () => {
                     onSearch={(e) => {
                         onSearch(e);
                         setTimeout(() => {
-                            setTokens([]);
-                            setWallet("");
+                            setOwnTokens([]);
+                            setOwnPositiveTokens([]);
                         }, 100);
                     }}
                     onChange={(e) => setWallet(e.target.value)}
                     enterButton
                     value={wallet}
                 />
-                <p>Own ATK: {tokens.length} piece(s) </p>
-                <p>Own Positive ATK: {ownPositiveTokens.length} piece(s)</p>
-                {/* {(() => {
-                    
-                })()} */}
+                <Divider className="wt-divider" />
+                {ownTokens.length !== 0 && (
+                    <div className="reward-img-container">
+                        {(() => {
+                            if (ownTokens.length >= 2 && ownPositiveTokens.length === 0) {
+                                return <Reward1 />;
+                            }
+                            if (ownTokens.length >= 1 && ownPositiveTokens.length === 1) {
+                                return <Reward2 />;
+                            }
+                            if (ownPositiveTokens.length >= 2) {
+                                return <Reward3 />;
+                            }
+                        })()}
+                    </div>
+                )}
+                {/* <p>Own ATK: {ownTokens.length} piece(s) </p>
+                <p>Own Positive ATK: {ownPositiveTokens.length} piece(s)</p> */}
             </div>
         </MainLayout>
     );

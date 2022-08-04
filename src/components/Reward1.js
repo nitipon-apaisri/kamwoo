@@ -1,8 +1,8 @@
 const Reward1 = () => {
     return (
-        <>
-            <h2>type 1</h2>
-        </>
+        <div className="reward1-container">
+            <div className="reward-img" style={{ backgroundImage: `url(./img/default-character.jpeg)` }}></div>
+        </div>
     );
 };
 
