@@ -1,3 +1,4 @@
+@import "../../node_modules/spinthatshit/src/loaders.scss";
 span.its-fine-highlight {
     color: #f50289;
 }
@@ -24,6 +25,16 @@ span.its-fine-highlight {
         height: 40px;
         background-color: #f50289;
         border: transparent;
+    }
+    .loading {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 80px;
+        align-items: center;
+        .loader {
+            @include loader07($color: #f50289, $size: 10px);
+        }
     }
     .reward-img-container {
         .reward2-container,

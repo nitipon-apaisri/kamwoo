@@ -11,6 +11,7 @@ const WTChecker = () => {
     const [wallet, setWallet] = useState("");
     const [ownTokens, setOwnTokens] = useState([]);
     const [ownPositiveTokens, setOwnPositiveTokens] = useState([]);
+    const [loader, setLoader] = useState(false);
     useEffect(() => {
         const positiveTokens = [
             "110115",
@@ -50,11 +51,15 @@ const WTChecker = () => {
             "433671",
         ];
         for (let i = 0; i < ownTokens.length; i++) {
-            // console.log(tokens[i].token_series_id);
             const findOwnPositiveTokens = positiveTokens.find((positiveToken) => positiveToken === ownTokens[i].token_series_id);
             if (findOwnPositiveTokens !== undefined) {
                 setOwnPositiveTokens((token) => [...token, findOwnPositiveTokens]);
             }
+        }
+    }, [ownTokens]);
+    useEffect(() => {
+        if (ownTokens.length !== 0) {
+            setLoader(false);
         }
     }, [ownTokens]);
     useEffect(() => {
@@ -82,18 +87,25 @@ const WTChecker = () => {
                     placeholder="example.near"
                     onSearch={(e) => {
                         onSearch(e);
+                        setLoader(true);
                         setTimeout(() => {
                             setOwnTokens([]);
                             setOwnPositiveTokens([]);
-                        }, 100);
+                        }, 300);
                     }}
                     onChange={(e) => setWallet(e.target.value)}
                     enterButton
                     value={wallet}
                 />
-                <Divider className="wt-divider" />
-                {ownTokens.length !== 0 && (
+                {loader && (
+                    <div className="loading">
+                        <div className="loader"></div>
+                    </div>
+                )}
+
+                {ownTokens.length !== 0 && !loader && (
                     <div className="reward-img-container">
+                        <Divider className="wt-divider" />
                         {(() => {
                             if (ownTokens.length >= 2 && ownPositiveTokens.length === 0) {
                                 return <Reward1 />;
