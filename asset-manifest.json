@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nitipon-apaisri/kamwoo/static/css/main.6deee996.css",
+    "main.js": "/nitipon-apaisri/kamwoo/static/js/main.ef63d479.js",
+    "static/js/787.8c1286be.chunk.js": "/nitipon-apaisri/kamwoo/static/js/787.8c1286be.chunk.js",
+    "index.html": "/nitipon-apaisri/kamwoo/index.html",
+    "main.6deee996.css.map": "/nitipon-apaisri/kamwoo/static/css/main.6deee996.css.map",
+    "main.ef63d479.js.map": "/nitipon-apaisri/kamwoo/static/js/main.ef63d479.js.map",
+    "787.8c1286be.chunk.js.map": "/nitipon-apaisri/kamwoo/static/js/787.8c1286be.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6deee996.css",
+    "static/js/main.ef63d479.js"
+  ]
+}
