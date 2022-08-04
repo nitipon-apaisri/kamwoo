@@ -58,7 +58,7 @@ const WTChecker = () => {
         }
     }, [ownTokens]);
     useEffect(() => {
-        document.title = "It's fine reward checker";
+        document.title = "KAMWOO | It's fine reward checker";
     }, []);
     const onSearch = (value) => {
         axios
