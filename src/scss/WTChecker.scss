@@ -36,6 +36,12 @@ span.its-fine-highlight {
             @include loader07($color: #f50289, $size: 10px);
         }
     }
+    .empty-banner {
+        box-sizing: border-box;
+        border-radius: 16px;
+        padding: 24px;
+        background-color: rgb(241, 241, 241);
+    }
     .reward-img-container {
         .reward2-container,
         .reward1-container {
