@@ -92,7 +92,7 @@ const WTChecker = () => {
                             if (ownTokens.length >= 1 && ownPositiveTokens.length === 1) {
                                 return <Reward2 />;
                             }
-                            if (ownPositiveTokens.length >= 2) {
+                            if (wallet !== "" && checked === true && ownPositiveTokens.length >= 2) {
                                 return <Reward3 />;
                             }
                         })()}
