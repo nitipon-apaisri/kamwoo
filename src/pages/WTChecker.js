@@ -22,7 +22,7 @@ const WTChecker = () => {
         }
     }, [ownTokens]);
     useEffect(() => {
-        if (ownTokens.length === 0 && checked === true) {
+        if (checked === true) {
             setTimeout(() => {
                 setLoader(false);
             }, 300);
@@ -36,7 +36,7 @@ const WTChecker = () => {
         }
     }, [wallet]);
     useEffect(() => {
-        document.title = "It's fine reward checker";
+        document.title = "KAMWOO | Reward Checker";
     }, []);
     const onSearch = (value) => {
         axios
@@ -48,9 +48,6 @@ const WTChecker = () => {
                             setOwnTokens((token) => [...token, r]);
                         }
                     });
-                    // setLoader(false);
-                    // setTimeout(() => {
-                    // }, 300);
                 }
             })
             .catch((err) => console.log(err));
@@ -74,13 +71,13 @@ const WTChecker = () => {
                     enterButton
                     value={wallet}
                 />
-                <Divider className="wt-divider" />
+                {wallet !== "" && checked === true && <Divider className="wt-divider" />}
                 {loader && (
                     <div className="loading">
                         <div className="loader"></div>
                     </div>
                 )}
-                {ownTokens.length === 0 && (wallet !== "") & (checked === true) && !loader ? (
+                {ownTokens.length === 0 && wallet !== "" && checked === true && !loader ? (
                     <>
                         <div className="empty-banner">
                             <Empty />
@@ -95,7 +92,7 @@ const WTChecker = () => {
                             if (ownTokens.length >= 1 && ownPositiveTokens.length === 1) {
                                 return <Reward2 />;
                             }
-                            if (ownPositiveTokens.length >= 2) {
+                            if (wallet !== "" && checked === true && ownPositiveTokens.length >= 2) {
                                 return <Reward3 />;
                             }
                         })()}

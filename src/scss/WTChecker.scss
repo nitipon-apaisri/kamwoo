@@ -6,11 +6,8 @@ span.its-fine-highlight {
     width: 100%;
     max-width: 800px;
     margin: 0;
-    position: absolute;
-    top: calc(50% - 80px);
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column;
     text-align: center;
     box-sizing: border-box;
     padding: 16px 16px 40px 16px;
