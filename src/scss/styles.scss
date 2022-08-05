@@ -24,26 +24,39 @@ body {
     margin: 0;
     height: 100%;
     .main-layout {
-        position: relative;
-        min-height: 100vh;
-        width: 100%;
-        max-width: 1440px;
-        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        height: calc(100vh - 140px);
+    }
+    .ant-layout {
+        background: #fff;
+        .ant-layout-header {
+            display: flex;
+            align-items: center;
+            .logo {
+                width: 40px;
+                height: 40px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            background: transparent;
+        }
+        .ant-layout-footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: #f50289;
+            h3 {
+                color: #fff;
+                font-weight: bolder;
+            }
+        }
     }
     .ant-input {
         border-radius: 8px;
         padding: 8px;
-    }
-    footer {
-        background-color: #f50289;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        padding: 20px 40px;
-        border-top: 1px solid rgb(239, 239, 239);
-        h3 {
-            color: #fff;
-            font-weight: bolder;
-        }
     }
 }
