@@ -77,7 +77,7 @@ const WTChecker = () => {
                         <div className="loader"></div>
                     </div>
                 )}
-                {ownTokens.length === 0 && wallet !== "" && checked === true && !loader ? (
+                {ownTokens.length <= 1 && wallet !== "" && checked === true && !loader ? (
                     <>
                         <div className="empty-banner">
                             <Empty />
