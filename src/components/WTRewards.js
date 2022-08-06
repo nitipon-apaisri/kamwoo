@@ -25,6 +25,7 @@ const WTRewards = ({ reward }) => {
             default:
                 setRewardsSet([]);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reward]);
     return (
         <>

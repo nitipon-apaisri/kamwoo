@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MainLayout from "../layout";
 import { Divider, Empty, Input } from "antd";
-import Reward1 from "../components/Reward1";
-import Reward2 from "../components/Reward2";
-import Reward3 from "../components/Reward3";
 import { positiveTokens, positiveTokensSS1, positiveTokensSS2 } from "../assets/positiveATK";
 import WTRewards from "../components/WTRewards";
 const { Search } = Input;
@@ -39,17 +36,14 @@ const WTChecker = () => {
                 }
             }
         }
-        if (ownTokens.length >= 2 && ownPositiveSS1 === false && ownPositiveSS2 === false && ownPositiveTokens.length === 0) {
+        if (ownTokens.length >= 2 && ownPositiveTokens.length === 0) {
             setRewardSet("BASE");
-            console.log("BASE");
-        } else if (ownPositiveSS1 === true && ownPositiveSS2 === true) {
+        } else if (wallet !== "" && checked === true && ownPositiveTokens.length >= 2) {
             setRewardSet("FS");
-            console.log("FS");
-        } else {
+        } else if (ownTokens.length >= 1 && ownPositiveTokens.length === 1) {
             setRewardSet("MS");
-            console.log("MS");
         }
-    }, [ownPositiveTokens, ownPositiveSS1, ownPositiveSS2]);
+    }, [ownPositiveTokens, ownPositiveSS1, ownPositiveSS2, checked, wallet, ownTokens]);
     useEffect(() => {
         if (checked === true) {
             setTimeout(() => {
@@ -131,17 +125,6 @@ const WTChecker = () => {
                 )}
                 {ownTokens.length >= 2 && wallet !== "" && checked === true && !loader && (
                     <div className="reward-img-container">
-                        {/* {(() => {
-                            if (ownTokens.length >= 2 && ownPositiveTokens.length === 0) {
-                                return <Reward1 />;
-                            }
-                            if (ownTokens.length >= 1 && ownPositiveTokens.length === 1) {
-                                return <Reward2 />;
-                            }
-                            if (wallet !== "" && checked === true && ownPositiveTokens.length >= 2) {
-                                return <Reward3 />;
-                            }
-                        })()} */}
                         <WTRewards reward={rewardSet} />
                     </div>
                 )}
