@@ -112,7 +112,11 @@ const WTChecker = () => {
                     if (res.data.data.results.length !== 0) {
                         res.data.data.results.forEach((r) => {
                             if (r.metadata.copies < 2) {
-                                setOwnDJ((token) => [...token, r]);
+                                const ownDJ = DJ.find((token) => token === r.token_series_id);
+                                if (ownDJ !== undefined) {
+                                    setRewardSet("");
+                                    setBonus(true);
+                                }
                             }
                         });
                     }
@@ -127,7 +131,7 @@ const WTChecker = () => {
         <MainLayout>
             <div className="wt-checker">
                 <h1>
-                    Your <span className="its-fine-highlight">WHAT THE...</span> Reward
+                    Your <span className="its-fine-highlight">WHAT THE... </span> Reward
                 </h1>
                 <Search
                     placeholder="example.near"
@@ -145,21 +149,21 @@ const WTChecker = () => {
                         <div className="loader"></div>
                     </div>
                 )}
-                {ownTokens.length <= 1 && ownDJ.length === 0 && wallet !== "" && checked === true && !loader && (
+                {ownTokens.length <= 1 && bonus === false && wallet !== "" && checked === true && !loader && (
                     <>
                         <div className="empty-banner">
                             <Empty />
                         </div>
                     </>
                 )}
-                {ownTokens.length === 0 && wallet === "" && checked === true && !loader && (
+                {ownTokens.length === 0 && bonus === false && wallet === "" && checked === true && !loader && (
                     <>
                         <div className="empty-banner">
                             <Empty />
                         </div>
                     </>
                 )}
-                {(ownTokens.length >= 2 || ownDJ.length >= 1) && wallet !== "" && checked === true && !loader && (
+                {(ownTokens.length >= 2 || bonus === true) && wallet !== "" && checked === true && !loader && (
                     <div className="reward-img-container">
                         <WTRewards reward={rewardSet} bonus={bonus} />
                     </div>
