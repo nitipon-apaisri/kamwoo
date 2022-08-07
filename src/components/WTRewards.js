@@ -38,8 +38,8 @@ const WTRewards = ({ reward, bonus }) => {
             {width <= 480 ? (
                 <>
                     {rewardsSet.map((row, index) => (
-                        <div className="responsive-vertical">
-                            <div className="result-wrapper" key={row}>
+                        <div className="responsive-vertical" key={row}>
+                            <div className="result-wrapper">
                                 <div className="reward-img" style={{ backgroundImage: `url(./img/wt-rewards/${row}.jpeg)` }}></div>
                                 <>
                                     {(() => {

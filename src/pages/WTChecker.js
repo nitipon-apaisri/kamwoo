@@ -65,7 +65,7 @@ const WTChecker = () => {
         }
     }, [wallet]);
     useEffect(() => {
-        document.title = "KAMWOO | Reward Checker";
+        document.title = "KW | Reward Checker";
     }, []);
     const onSearch = (value) => {
         if (wallet !== "") {
@@ -97,12 +97,12 @@ const WTChecker = () => {
         <MainLayout>
             <div className="wt-checker">
                 <h1>
-                    KW <span className="its-fine-highlight">REWARDS</span>
+                    KW <span className="its-fine-highlight">REWARDS </span> CHECKER
                 </h1>
                 <Search
                     placeholder="example.near"
                     onSearch={(e) => {
-                        onSearch(e);
+                        onSearch(e.toLowerCase());
                     }}
                     onChange={(e) => setWallet(e.target.value)}
                     enterButton
