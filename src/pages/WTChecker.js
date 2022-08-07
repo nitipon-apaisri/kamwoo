@@ -15,7 +15,6 @@ const WTChecker = () => {
     const [ownPositiveSS2, setOwnPositiveSS2] = useState(false);
     const [rewardSet, setRewardSet] = useState("");
     const [bonus, setBonus] = useState(false);
-    const [ownDJ, setOwnDJ] = useState([]);
     useEffect(() => {
         for (let i = 0; i < ownTokens.length; i++) {
             const findOwnPositiveTokens = positiveTokens.find((positiveToken) => positiveToken === ownTokens[i].token_series_id);
@@ -24,19 +23,6 @@ const WTChecker = () => {
             }
         }
     }, [ownTokens]);
-    useEffect(() => {
-        if (ownDJ.length !== 0) {
-            for (let i = 0; i < DJ.length; i++) {
-                if (ownDJ[i] !== undefined) {
-                    console.log(ownDJ[i].token_series_id);
-                    const findOwnDJ = DJ.find((dj) => dj === ownDJ[i].token_series_id);
-                    if (findOwnDJ !== undefined) {
-                        setBonus(true);
-                    }
-                }
-            }
-        }
-    }, [ownDJ]);
     useEffect(() => {
         if (ownPositiveSS1 === true && ownPositiveSS2 === true) {
             setBonus(true);
@@ -74,10 +60,8 @@ const WTChecker = () => {
         if (wallet === "") {
             setOwnTokens([]);
             setOwnPositiveTokens([]);
-            setOwnDJ([]);
             setChecked(false);
             setBonus(false);
-            setRewardSet("");
         }
     }, [wallet]);
     useEffect(() => {
@@ -88,12 +72,10 @@ const WTChecker = () => {
             setLoader(true);
             setChecked(true);
             setOwnTokens([]);
-            setOwnDJ([]);
             setOwnPositiveSS1(false);
             setOwnPositiveSS2(false);
             setOwnPositiveTokens([]);
             setBonus(false);
-            setRewardSet("");
             axios
                 .get(`https://api-v2-mainnet.paras.id/token?creator_id=kamwoo.near&owner_id=${value}&collection_id=its-fine-by-kamwoonear`)
                 .then((res) => {
