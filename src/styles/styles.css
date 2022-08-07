@@ -40,9 +40,9 @@ span.its-fine-highlight {
   height: 10px;
   border-radius: 50%;
   position: relative;
-  animation: loader07-u5pno9n 1s linear infinite;
+  animation: loader07-u5pnoas 1s linear infinite;
 }
-@keyframes loader07-u5pno9n {
+@keyframes loader07-u5pnoas {
   0% {
     box-shadow: 0 -17px 0 0 rgba(245, 2, 137, 0.05), 12px -12px 0 0 rgba(245, 2, 137, 0.1), 17px 0 0 0 rgba(245, 2, 137, 0.2), 12px 12px 0 0 rgba(245, 2, 137, 0.3), 0 17px 0 0 rgba(245, 2, 137, 0.4), -12px 12px 0 0 rgba(245, 2, 137, 0.6), -17px 0 0 0 rgba(245, 2, 137, 0.8), -12px -12px 0 0 #f50289;
   }
