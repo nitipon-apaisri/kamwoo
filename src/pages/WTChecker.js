@@ -127,7 +127,7 @@ const WTChecker = () => {
         <MainLayout>
             <div className="wt-checker">
                 <h1>
-                    KW <span className="its-fine-highlight">REWARDS </span> CHECKER
+                    Your <span className="its-fine-highlight">WHAT THE...</span> Reward
                 </h1>
                 <Search
                     placeholder="example.near"
