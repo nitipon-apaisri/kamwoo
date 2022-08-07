@@ -14,22 +14,22 @@ const Reward2 = () => {
             {width <= 480 ? (
                 <div className="responsive-vertical">
                     <div className="result-wrapper">
-                        <div className="reward-img" style={{ backgroundImage: `url(./img/default-character.jpeg)` }}></div>
+                        <div className="reward-img" style={{ backgroundImage: `url(./img/wt-rewards/default-character.jpeg)` }}></div>
                         <h4>A Default Characer</h4>
                     </div>
                     <div className="result-wrapper">
-                        <div className="reward-img" style={{ backgroundImage: `url(./img/default-vaccin.jpeg)` }}></div>
+                        <div className="reward-img" style={{ backgroundImage: `url(./img/wt-rewards/default-vaccin.jpeg)` }}></div>
                         <h4>A Vaccin</h4>
                     </div>
                 </div>
             ) : (
                 <Row gutter={16} justify="center">
                     <Col className="result-wrapper" span={8}>
-                        <div className="reward-img" style={{ backgroundImage: `url(./img/default-character.jpeg)` }}></div>
+                        <div className="reward-img" style={{ backgroundImage: `url(./img/wt-rewards/default-character.jpeg)` }}></div>
                         <h4>A Default Characer</h4>
                     </Col>
                     <Col className="result-wrapper" span={8}>
-                        <div className="reward-img" style={{ backgroundImage: `url(./img/default-vaccin.jpeg)` }}></div>
+                        <div className="reward-img" style={{ backgroundImage: `url(./img/wt-rewards/default-vaccin.jpeg)` }}></div>
                         <h4>A Vaccin</h4>
                     </Col>
                 </Row>
