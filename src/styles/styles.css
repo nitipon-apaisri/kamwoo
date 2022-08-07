@@ -40,9 +40,9 @@ span.its-fine-highlight {
   height: 10px;
   border-radius: 50%;
   position: relative;
-  animation: loader07-u5pno15 1s linear infinite;
+  animation: loader07-u5pno9n 1s linear infinite;
 }
-@keyframes loader07-u5pno15 {
+@keyframes loader07-u5pno9n {
   0% {
     box-shadow: 0 -17px 0 0 rgba(245, 2, 137, 0.05), 12px -12px 0 0 rgba(245, 2, 137, 0.1), 17px 0 0 0 rgba(245, 2, 137, 0.2), 12px 12px 0 0 rgba(245, 2, 137, 0.3), 0 17px 0 0 rgba(245, 2, 137, 0.4), -12px 12px 0 0 rgba(245, 2, 137, 0.6), -17px 0 0 0 rgba(245, 2, 137, 0.8), -12px -12px 0 0 #f50289;
   }
@@ -87,8 +87,9 @@ span.its-fine-highlight {
   background-size: cover;
   box-shadow: 0px 4px 20px rgba(168, 168, 168, 0.25);
 }
-.wt-checker .reward-img-container .result-wrapper h4 {
-  font-weight: bolder;
+.wt-checker .reward-img-container .result-wrapper p {
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 480px) {
