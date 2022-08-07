@@ -14,6 +14,7 @@ const WTChecker = () => {
     const [ownPositiveSS1, setOwnPositiveSS1] = useState(false);
     const [ownPositiveSS2, setOwnPositiveSS2] = useState(false);
     const [rewardSet, setRewardSet] = useState("");
+    const [bonus, setBonus] = useState(false);
     useEffect(() => {
         for (let i = 0; i < ownTokens.length; i++) {
             const findOwnPositiveTokens = positiveTokens.find((positiveToken) => positiveToken === ownTokens[i].token_series_id);
@@ -22,7 +23,11 @@ const WTChecker = () => {
             }
         }
     }, [ownTokens]);
-
+    useEffect(() => {
+        if (ownPositiveSS1 === true && ownPositiveSS2 === true) {
+            setBonus(true);
+        }
+    }, [ownPositiveSS1, ownPositiveSS2]);
     useEffect(() => {
         if (ownPositiveTokens.length !== 0) {
             for (let i = 0; i < ownPositiveTokens.length; i++) {
@@ -56,6 +61,7 @@ const WTChecker = () => {
             setOwnTokens([]);
             setOwnPositiveTokens([]);
             setChecked(false);
+            setBonus(false);
         }
     }, [wallet]);
     useEffect(() => {
@@ -69,6 +75,7 @@ const WTChecker = () => {
             setOwnPositiveSS1(false);
             setOwnPositiveSS2(false);
             setOwnPositiveTokens([]);
+            setBonus(false);
             axios
                 .get(`https://api-v2-mainnet.paras.id/token?creator_id=kamwoo.near&owner_id=${value}&collection_id=its-fine-by-kamwoonear`)
                 .then((res) => {
@@ -90,8 +97,7 @@ const WTChecker = () => {
         <MainLayout>
             <div className="wt-checker">
                 <h1>
-                    Your <span className="its-fine-highlight">It's fine.</span> rewards
-                    <p>{ownPositiveTokens.length}</p>
+                    KW <span className="its-fine-highlight">REWARDS</span>
                 </h1>
                 <Search
                     placeholder="example.near"
@@ -125,7 +131,7 @@ const WTChecker = () => {
                 )}
                 {ownTokens.length >= 2 && wallet !== "" && checked === true && !loader && (
                     <div className="reward-img-container">
-                        <WTRewards reward={rewardSet} />
+                        <WTRewards reward={rewardSet} bonus={bonus} />
                     </div>
                 )}
             </div>
