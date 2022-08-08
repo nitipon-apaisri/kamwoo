@@ -1,12 +1,18 @@
 import { Layout } from "antd";
 import "antd/dist/antd.min.css";
+import { Link } from "react-router-dom";
 const { Header, Footer, Content } = Layout;
 const MainLayout = ({ children }) => {
     return (
         <>
             <Layout>
                 <Header>
-                    <div className="logo" style={{ backgroundImage: `url(./img/kw-logo.png)` }}></div>
+                    <Link to="/">
+                        <div className="logo" style={{ backgroundImage: `url(./img/kw-logo.png)` }}></div>
+                    </Link>
+                    <ul>
+                        <Link to="/info">INFO</Link>
+                    </ul>
                 </Header>
                 <Content>
                     <div className="main-layout">{children}</div>

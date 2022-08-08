@@ -10,8 +10,10 @@ span.its-fine-highlight {
   display: flex;
   flex-flow: column;
   text-align: center;
+  justify-content: center;
   box-sizing: border-box;
-  padding: 16px 16px 40px 16px;
+  min-height: 100vh;
+  padding: 16px;
 }
 .wt-checker h1 {
   font-weight: bolder;
@@ -40,9 +42,9 @@ span.its-fine-highlight {
   height: 10px;
   border-radius: 50%;
   position: relative;
-  animation: loader07-u5pno15 1s linear infinite;
+  animation: loader07-u5pnqf7 1s linear infinite;
 }
-@keyframes loader07-u5pno15 {
+@keyframes loader07-u5pnqf7 {
   0% {
     box-shadow: 0 -17px 0 0 rgba(245, 2, 137, 0.05), 12px -12px 0 0 rgba(245, 2, 137, 0.1), 17px 0 0 0 rgba(245, 2, 137, 0.2), 12px 12px 0 0 rgba(245, 2, 137, 0.3), 0 17px 0 0 rgba(245, 2, 137, 0.4), -12px 12px 0 0 rgba(245, 2, 137, 0.6), -17px 0 0 0 rgba(245, 2, 137, 0.8), -12px -12px 0 0 #f50289;
   }
@@ -81,7 +83,7 @@ span.its-fine-highlight {
   width: 100%;
   height: 252px;
   border-radius: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -92,6 +94,90 @@ span.its-fine-highlight {
   font-weight: 600;
 }
 
+.info-container {
+  box-sizing: border-box;
+  max-width: 960px;
+  width: 100%;
+  padding: 24px;
+}
+.info-container .info-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.info-container .reward-set {
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 40px 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+.info-container .reward-set .equal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -16px;
+}
+.info-container .reward-set .equal h1 {
+  font-weight: bolder;
+}
+.info-container .reward-set .info-block {
+  text-align: center;
+  font-weight: bold;
+}
+.info-container .reward-set .info-block p {
+  font-size: 0.7rem;
+}
+.info-container .reward-set .info-block .info-img {
+  border-radius: 16px;
+  margin-bottom: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 4px 20px rgba(168, 168, 168, 0.25);
+  height: 160px;
+}
+
+@media screen and (max-width: 720px) {
+  .info-container .reward-set .info-block .info-img {
+    height: 120px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .info-container .reward-set {
+    display: block;
+  }
+  .info-container .reward-set .hold {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+  .info-container .reward-set .get-rewards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    margin-top: 16px;
+  }
+  .info-container .reward-set .get-rewards .info-block {
+    margin-bottom: 0;
+  }
+  .info-container .reward-set .info-block {
+    margin-bottom: 16px;
+  }
+  .info-container .reward-set .info-block .info-img {
+    height: 252px;
+  }
+  .info-container .reward-set-1 .get-rewards {
+    display: block;
+  }
+  .info-container .reward-set-1 .get-rewards .info-block {
+    margin-bottom: 16px;
+  }
+  .info-container .reward-set-1 .get-rewards .info-block .info-img {
+    margin: 16px auto;
+    width: 252px;
+    height: 252px;
+  }
+}
 @media screen and (max-width: 480px) {
   .wt-checker {
     height: calc(100vh - 140px);
@@ -106,6 +192,22 @@ span.its-fine-highlight {
     margin: 16px auto;
     width: 240px;
     height: 240px;
+  }
+  .info-container .reward-set .info-block .info-img {
+    height: 200px;
+  }
+  .info-container .reward-set-1 .get-rewards .info-block .info-img {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .info-container .reward-set .info-block .info-img {
+    height: 160px;
+  }
+  .info-container .reward-set-1 .get-rewards .info-block .info-img {
+    width: 160px;
+    height: 160px;
   }
 }
 h1,
@@ -138,7 +240,6 @@ body .main-layout {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  height: calc(100vh - 140px);
 }
 body .ant-layout {
   background: #fff;
@@ -146,7 +247,15 @@ body .ant-layout {
 body .ant-layout .ant-layout-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: transparent;
+}
+body .ant-layout .ant-layout-header ul {
+  margin-bottom: 0;
+}
+body .ant-layout .ant-layout-header ul a {
+  font-weight: bolder;
+  color: #f50289;
 }
 body .ant-layout .ant-layout-header .logo {
   width: 40px;
@@ -156,9 +265,6 @@ body .ant-layout .ant-layout-header .logo {
   background-size: cover;
 }
 body .ant-layout .ant-layout-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   background: #f50289;
 }
 body .ant-layout .ant-layout-footer h3 {
