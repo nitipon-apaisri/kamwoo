@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "./WTChecker.scss";
 @import "./info.scss";
+@import "./hold.scss";
 @import "./responsive.scss";
 h1,
 h2,
@@ -30,6 +31,16 @@ body {
         align-items: center;
         box-sizing: border-box;
     }
+    table {
+        border: 1px solid #f9f9f9;
+        td {
+            p {
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                white-space: nowrap !important;
+            }
+        }
+    }
     .ant-layout {
         background: #fff;
         .ant-layout-header {
@@ -39,6 +50,7 @@ body {
             ul {
                 margin-bottom: 0;
                 a {
+                    margin: 0 16px !important;
                     font-weight: bolder;
                     color: #f50289;
                 }
@@ -51,6 +63,16 @@ body {
                 background-size: cover;
             }
             background: transparent;
+        }
+        .loading {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 80px;
+            align-items: center;
+            .loader {
+                @include loader07($color: #f50289, $size: 10px);
+            }
         }
         .ant-layout-footer {
             // position: absolute;

@@ -28,16 +28,6 @@ span.its-fine-highlight {
         background-color: #f50289;
         border: transparent;
     }
-    .loading {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        height: 80px;
-        align-items: center;
-        .loader {
-            @include loader07($color: #f50289, $size: 10px);
-        }
-    }
     .empty-banner {
         box-sizing: border-box;
         border-radius: 16px;
