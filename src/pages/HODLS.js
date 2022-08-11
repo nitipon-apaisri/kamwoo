@@ -1,4 +1,4 @@
-import { Button, Table } from "antd";
+import { Button, Table, Image } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { positiveTokens } from "../assets/positiveATK";
@@ -11,7 +11,6 @@ const HOLDS = () => {
     const [owner, setOwner] = useState({ wallet: "", reward: "", bonus: false });
     const [ownerId, setOwnerId] = useState("");
     useEffect(() => {
-        console.log(holders);
         fetch();
     }, []);
     useEffect(() => {
@@ -36,7 +35,9 @@ const HOLDS = () => {
             render: (tokens, row) => (
                 <>
                     {tokens.map((token) => (
-                        <p key={token.metadata.title}>{token.metadata.title}</p>
+                        <Image src={`https://paras-cdn.imgix.net/${token.metadata.media}`} alt={token.metadata.title} key={token.metadata.title} width={64} className="holder-token-img" />
+
+                        // <p key={token.metadata.title}>{token.metadata.title}</p>
                     ))}
                 </>
             ),
@@ -88,11 +89,7 @@ const HOLDS = () => {
 
     return (
         <MainLayout>
-            <div className="hold-container">
-                <p>HOLD</p>
-                <p>{holders.length}</p>
-                {holders.length !== 0 && <Table columns={columns} dataSource={holders} rowKey={(row) => row.holder} />}
-            </div>
+            <div className="hold-container">{holders.length !== 0 && <Table columns={columns} dataSource={holders} rowKey={(row) => row.holder} />}</div>
         </MainLayout>
     );
 };
