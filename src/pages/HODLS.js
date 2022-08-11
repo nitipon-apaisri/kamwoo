@@ -6,14 +6,22 @@ import MainLayout from "../layout";
 
 const HOLDS = () => {
     const [holders, setHolders] = useState([]);
-    const [ownTokens, setOwnTokens] = useState([]);
+    const [tokens, setTokens] = useState([]);
     const [ownPositiveTokens, setOwnPositiveTokens] = useState([]);
     const [owner, setOwner] = useState({ wallet: "", reward: "", bonus: false });
     const [ownerId, setOwnerId] = useState("");
     useEffect(() => {
-        console.log("hi");
+        console.log(holders);
         fetch();
     }, []);
+    useEffect(() => {
+        if (holders.length !== 0) {
+            holders.forEach((r) => {
+                checkHolder(r.holder);
+            });
+        }
+    }, [holders]);
+
     const columns = [
         {
             title: "Holder",
@@ -23,16 +31,38 @@ const HOLDS = () => {
         },
         {
             title: "ATK",
-            dataIndex: "holder",
+            dataIndex: "tokens",
             key: "hold",
-            render: (text) => <p>{text}</p>,
+            render: (tokens, row) => (
+                <>
+                    {tokens.map((token) => (
+                        <p key={token.metadata.title}>{token.metadata.title}</p>
+                    ))}
+                </>
+            ),
         },
     ];
     const fetch = () => {
         axios
             .get("https://api-v2-mainnet.paras.id/collection-stats?collection_id=its-fine-by-kamwoonear")
-            .then((res) => {
-                setHolders((holder) => [...holder, { holder: "nitipon-apaisri.near" }]);
+            .then((holder) => {
+                for (let i = 0; i < 5; i++) {
+                    // res.data.data.results.owner_ids((owner) => {
+                    axios
+                        .get(`https://api-v2-mainnet.paras.id/token?creator_id=kamwoo.near&owner_id=${holder.data.data.results.owner_ids[i]}&collection_id=its-fine-by-kamwoonear`)
+                        .then((res) => {
+                            if (res.data.data.results.length !== 0) {
+                                setHolders((holder) => [...holder, { holder: res.data.data.results[0].owner_id, tokens: res.data.data.results }]);
+                                // res.data.data.results.forEach((r) => {
+                                //     if (r.metadata.copies < 2) {
+                                //         setTokens((token) => [...token, r]);
+                                //     }
+                                // });
+                            }
+                        })
+                        .catch((err) => console.log(err));
+                    //})
+                }
 
                 // checkHolder("12lil.near");
                 // for (let i = 0; i < 2; i++) {
@@ -48,8 +78,7 @@ const HOLDS = () => {
                 if (res.data.data.results.length !== 0) {
                     res.data.data.results.forEach((r) => {
                         if (r.metadata.copies < 2) {
-                            console.log(res.data.data.results);
-                            // setHolders((token) => [...token, r]);
+                            setTokens((token) => [...token, r]);
                         }
                     });
                 }
