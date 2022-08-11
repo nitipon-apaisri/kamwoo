@@ -31,6 +31,16 @@ body {
         align-items: center;
         box-sizing: border-box;
     }
+    table {
+        border: 1px solid #f9f9f9;
+        td {
+            p {
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                white-space: nowrap !important;
+            }
+        }
+    }
     .ant-layout {
         background: #fff;
         .ant-layout-header {
@@ -53,6 +63,16 @@ body {
                 background-size: cover;
             }
             background: transparent;
+        }
+        .loading {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 80px;
+            align-items: center;
+            .loader {
+                @include loader07($color: #f50289, $size: 10px);
+            }
         }
         .ant-layout-footer {
             // position: absolute;
