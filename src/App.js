@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import HOLDS from "./pages/HODLS";
+import Info from "./pages/Info";
 import WTChecker from "./pages/WTChecker";
 import "./styles/styles.css";
 function App() {
@@ -7,6 +9,8 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/" element={<WTChecker />} />
+                <Route path="/info" element={<Info />} />
+                <Route path="/holds" element={<HOLDS />} />
             </Routes>
         </div>
     );

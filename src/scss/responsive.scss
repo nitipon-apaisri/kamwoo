@@ -1,3 +1,55 @@
+@media screen and (max-width: 720px) {
+    .info-container {
+        .reward-set {
+            .info-block {
+                .info-img {
+                    height: 120px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .info-container {
+        .reward-set {
+            display: block;
+            .hold {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 16px;
+            }
+            .get-rewards {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 16px;
+                margin-top: 16px;
+
+                .info-block {
+                    margin-bottom: 0;
+                }
+            }
+            .info-block {
+                margin-bottom: 16px;
+                .info-img {
+                    height: 252px;
+                }
+            }
+        }
+        .reward-set-1 {
+            .get-rewards {
+                display: block;
+                .info-block {
+                    margin-bottom: 16px;
+                    .info-img {
+                        margin: 16px auto;
+                        width: 252px;
+                        height: 252px;
+                    }
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 480px) {
     .wt-checker {
         height: calc(100vh - 140px);
@@ -11,6 +63,47 @@
                     margin: 16px auto;
                     width: 240px;
                     height: 240px;
+                }
+            }
+        }
+    }
+    .info-container {
+        .reward-set {
+            .info-block {
+                .info-img {
+                    height: 200px;
+                }
+            }
+        }
+        .reward-set-1 {
+            .get-rewards {
+                .info-block {
+                    .info-img {
+                        width: 200px;
+                        height: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .info-container {
+        .reward-set {
+            .info-block {
+                .info-img {
+                    height: 160px;
+                }
+            }
+        }
+        .reward-set-1 {
+            .get-rewards {
+                .info-block {
+                    .info-img {
+                        width: 160px;
+                        height: 160px;
+                    }
                 }
             }
         }
