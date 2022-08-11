@@ -15,7 +15,7 @@ const WTRewards = ({ reward, bonus }) => {
         switch (reward) {
             case "MS":
                 if (rewardsSet.length === 0) {
-                    setRewardsSet((reward) => [...reward, "default-character", "default-outfit"]);
+                    setRewardsSet((reward) => [...reward, "default-character", "default-vaccin"]);
                 }
                 break;
             case "FS":
@@ -50,7 +50,7 @@ const WTRewards = ({ reward, bonus }) => {
                                             return <p>An outfit</p>;
                                         }
                                         if (row === "default-vaccin") {
-                                            return <p>A Vaccin</p>;
+                                            return <p>A Syringe</p>;
                                         }
                                     })()}
                                 </>
@@ -79,7 +79,7 @@ const WTRewards = ({ reward, bonus }) => {
                                             return <p>An outfit</p>;
                                         }
                                         if (row === "default-vaccin") {
-                                            return <p>A Vaccin</p>;
+                                            return <p>A Syringe</p>;
                                         }
                                     })()}
                                 </>

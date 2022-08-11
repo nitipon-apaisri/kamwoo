@@ -63,7 +63,6 @@ const WTChecker = () => {
             setChecked(false);
             setBonus(false);
         }
-        console.log(wallet);
     }, [wallet]);
     useEffect(() => {
         document.title = "KW | Reward Checker";
