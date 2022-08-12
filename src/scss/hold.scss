@@ -9,6 +9,14 @@
     }
     .table-wrapper {
         margin-top: 80px;
+        .search-table {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 16px;
+            input {
+                width: 400px;
+            }
+        }
     }
     .ant-image {
         img {
