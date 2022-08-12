@@ -48,7 +48,7 @@ const HOLDS = () => {
             title: "Holder",
             dataIndex: "holder",
             key: "hold",
-            width: "320px",
+            width: "35%",
             ellipsis: true,
             sorter: (a, b) => {
                 if (a.holder < b.holder) {
