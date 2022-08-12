@@ -9,6 +9,18 @@
     }
     .table-wrapper {
         margin-top: 80px;
+        .search-table {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            align-items: center;
+            h3 {
+                font-weight: bold;
+            }
+            input {
+                width: 400px;
+            }
+        }
     }
     .ant-image {
         img {
