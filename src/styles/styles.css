@@ -109,8 +109,12 @@ span.its-fine-highlight {
 }
 .hold-container .table-wrapper .search-table {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-bottom: 16px;
+  align-items: center;
+}
+.hold-container .table-wrapper .search-table h3 {
+  font-weight: bold;
 }
 .hold-container .table-wrapper .search-table input {
   width: 400px;
@@ -270,9 +274,9 @@ body .ant-layout .loading .loader {
   height: 10px;
   border-radius: 50%;
   position: relative;
-  animation: loader07-u5pnr8d 1s linear infinite;
+  animation: loader07-u5pnr9o 1s linear infinite;
 }
-@keyframes loader07-u5pnr8d {
+@keyframes loader07-u5pnr9o {
   0% {
     box-shadow: 0 -17px 0 0 rgba(245, 2, 137, 0.05), 12px -12px 0 0 rgba(245, 2, 137, 0.1), 17px 0 0 0 rgba(245, 2, 137, 0.2), 12px 12px 0 0 rgba(245, 2, 137, 0.3), 0 17px 0 0 rgba(245, 2, 137, 0.4), -12px 12px 0 0 rgba(245, 2, 137, 0.6), -17px 0 0 0 rgba(245, 2, 137, 0.8), -12px -12px 0 0 #f50289;
   }

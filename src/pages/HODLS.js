@@ -43,16 +43,6 @@ const HOLDS = () => {
             setLoader(false);
         }
     }, [skip]);
-    // const filterVals = useCallback((e) => {
-    //     const currValue = e.target.value;
-    //     setSearchValue(currValue);
-    //     const filteredData = holders.filter((name) => name.holder.includes(currValue));
-    //     // const filteredData = holders.filter((name) => {
-    //     //     return name;
-    //     // });
-    //     setHolders(filteredData);
-    //     console.log(searchValue);
-    // }, []);
     const columns = [
         {
             title: "Holder",
@@ -135,6 +125,9 @@ const HOLDS = () => {
                 {!loader && (
                     <div className="table-wrapper">
                         <div className="search-table">
+                            <h3>
+                                Total hodls: {holders.length} / {totalOwners[0].length}
+                            </h3>
                             <Input
                                 value={searchValue}
                                 onChange={(e) => {
