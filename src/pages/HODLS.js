@@ -18,10 +18,10 @@ const HOLDS = () => {
                 () => {
                     setSkip((prevCount) => prevCount + 1);
                 },
-                skip <= 9 ? 200 : 500
+                skip <= 9 ? 200 : 100
             );
-        if (skip >= 10) clearInterval(skipToken);
-        // if (skip >= totalOwners) clearInterval(skipToken);
+        // if (skip >= 10) clearInterval(skipToken);
+        if (skip >= totalOwners) clearInterval(skipToken);
     };
     useEffect(() => {
         if (totalOwners.length === 0) {
