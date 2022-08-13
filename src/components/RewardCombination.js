@@ -37,7 +37,7 @@ const RewaredCombination = () => {
                 </div>
                 <div className="info-block">
                     <div className="info-img" style={{ backgroundImage: `url(./img/wt-rewards/default-vaccin.jpeg)` }}></div>
-                    <p>A Vaccin</p>
+                    <p>A Syringe</p>
                 </div>
             </div>
             <div className="reward-set-3 reward-set">
@@ -60,7 +60,7 @@ const RewaredCombination = () => {
                 </div>
                 <div className="info-block">
                     <div className="info-img" style={{ backgroundImage: `url(./img/wt-rewards/default-vaccin.jpeg)` }}></div>
-                    <p>A Vaccin</p>
+                    <p>A Syringe</p>
                 </div>
                 <div className="info-block">
                     <div className="info-img" style={{ backgroundImage: `url(./img/wt-rewards/default-outfit.jpeg)` }}></div>
