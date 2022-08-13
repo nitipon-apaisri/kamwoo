@@ -118,9 +118,9 @@ const WTChecker = () => {
                 <Search
                     placeholder="example.near"
                     onSearch={(e) => {
-                        onSearch(e.toLowerCase());
+                        onSearch(e);
                     }}
-                    onChange={(e) => setWallet(e.target.value)}
+                    onChange={(e) => setWallet(e.target.value.toLowerCase())}
                     enterButton
                     value={wallet}
                 />
