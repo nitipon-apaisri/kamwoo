@@ -12,7 +12,7 @@ const MainLayout = ({ children }) => {
                     </Link>
                     <ul>
                         <Link to="/info">INFO</Link>
-                        <Link to="/holds">HOLDS</Link>
+                        <Link to="/holds">HODLS</Link>
                     </ul>
                 </Header>
                 <Content>
