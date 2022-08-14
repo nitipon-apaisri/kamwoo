@@ -1,9 +1,11 @@
 import { Row, Col } from "antd";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { RewardCheckerContext } from "../store/rewardChecker";
 
-const WTRewards = ({ reward, bonus }) => {
+const WTRewards = () => {
     const [rewardsSet, setRewardsSet] = useState([]);
     const [width, setWidth] = useState(window.innerWidth);
+    const rewardContext = useContext(RewardCheckerContext);
     const updateWindowSize = () => {
         setWidth(window.innerWidth);
     };
@@ -12,7 +14,7 @@ const WTRewards = ({ reward, bonus }) => {
     });
     useEffect(() => {
         setRewardsSet([]);
-        switch (reward) {
+        switch (rewardContext.rewardSet) {
             case "MS":
                 if (rewardsSet.length === 0) {
                     setRewardsSet((reward) => [...reward, "default-character", "default-vaccin"]);
@@ -32,7 +34,7 @@ const WTRewards = ({ reward, bonus }) => {
                 setRewardsSet([]);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [reward]);
+    }, [rewardContext.rewardSet]);
     return (
         <>
             {width <= 480 ? (
@@ -57,7 +59,7 @@ const WTRewards = ({ reward, bonus }) => {
                             </div>
                         </div>
                     ))}
-                    {bonus && (
+                    {rewardContext.bonus && (
                         <Col className="result-wrapper">
                             <div className="reward-img" style={{ backgroundImage: `url(./img/wt-rewards/special-reward.jpeg)` }}></div>
                             <p>Special Bonus</p>
@@ -68,7 +70,7 @@ const WTRewards = ({ reward, bonus }) => {
                 <Row gutter={16}>
                     {rewardsSet.map((row, index) => (
                         <>
-                            <Col className="result-wrapper" span={bonus ? 6 : 8} key={row}>
+                            <Col className="result-wrapper" span={rewardContext.bonus ? 6 : 8} key={row}>
                                 <div className="reward-img" style={{ backgroundImage: `url(./img/wt-rewards/${row}.jpeg)` }}></div>
                                 <>
                                     {(() => {
@@ -86,7 +88,7 @@ const WTRewards = ({ reward, bonus }) => {
                             </Col>
                         </>
                     ))}
-                    {bonus && (
+                    {rewardContext.bonus && (
                         <Col className="result-wrapper" span={6}>
                             <div className="reward-img" style={{ backgroundImage: `url(./img/wt-rewards/special-reward.jpeg)` }}></div>
                             <p>Special Bonus</p>
