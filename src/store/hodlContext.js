@@ -34,8 +34,8 @@ const HodlProvider = (props) => {
                 },
                 skip <= 9 ? 200 : 100
             );
-        // if (skip >= 10) clearInterval(skipToken);
-        if (skip >= totalOwners) clearInterval(skipToken);
+        if (skip >= 10) clearInterval(skipToken);
+        // if (skip >= totalOwners) clearInterval(skipToken);
     };
 
     const getHolders = () => {

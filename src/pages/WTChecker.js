@@ -1,112 +1,29 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import MainLayout from "../layout";
 import { Divider, Empty, Input } from "antd";
-import { DJ, positiveTokens, positiveTokensSS1, positiveTokensSS2 } from "../assets/positiveATK";
 import WTRewards from "../components/WTRewards";
+import { RewardCheckerContext } from "../store/rewardChecker";
 const { Search } = Input;
 const WTChecker = () => {
-    const [wallet, setWallet] = useState("");
-    const [ownTokens, setOwnTokens] = useState([]);
-    const [ownPositiveTokens, setOwnPositiveTokens] = useState([]);
-    const [checked, setChecked] = useState(false);
     const [loader, setLoader] = useState(false);
-    const [ownPositiveSS1, setOwnPositiveSS1] = useState(false);
-    const [ownPositiveSS2, setOwnPositiveSS2] = useState(false);
-    const [rewardSet, setRewardSet] = useState("");
-    const [bonus, setBonus] = useState(false);
+    const rewardCheckerContext = useContext(RewardCheckerContext);
     useEffect(() => {
-        for (let i = 0; i < ownTokens.length; i++) {
-            const findOwnPositiveTokens = positiveTokens.find((positiveToken) => positiveToken === ownTokens[i].token_series_id);
-            if (findOwnPositiveTokens !== undefined) {
-                setOwnPositiveTokens((token) => [...token, findOwnPositiveTokens]);
-            }
-        }
-    }, [ownTokens]);
-    useEffect(() => {
-        if (ownPositiveSS1 === true && ownPositiveSS2 === true) {
-            setBonus(true);
-        }
-    }, [ownPositiveSS1, ownPositiveSS2]);
-    useEffect(() => {
-        if (ownPositiveTokens.length !== 0) {
-            for (let i = 0; i < ownPositiveTokens.length; i++) {
-                const findPositiveSS1 = positiveTokensSS1.find((token) => token === ownPositiveTokens[i]);
-                const findPositiveSS2 = positiveTokensSS2.find((token) => token === ownPositiveTokens[i]);
-                if (findPositiveSS1 !== undefined) {
-                    setOwnPositiveSS1(true);
-                }
-                if (findPositiveSS2 !== undefined) {
-                    setOwnPositiveSS2(true);
-                }
-            }
-        }
-        if (ownTokens.length >= 2 && ownPositiveTokens.length === 0) {
-            setRewardSet("BASE");
-        } else if (wallet !== "" && checked === true && ownPositiveTokens.length >= 2) {
-            setRewardSet("FS");
-        } else if (ownTokens.length >= 1 && ownPositiveTokens.length === 1) {
-            setRewardSet("MS");
-        }
-    }, [ownPositiveTokens, ownPositiveSS1, ownPositiveSS2, checked, wallet, ownTokens]);
-    useEffect(() => {
-        if (checked === true) {
+        if (rewardCheckerContext.checked === true) {
             setTimeout(() => {
                 setLoader(false);
             }, 300);
         }
-    }, [ownTokens, checked]);
-    useEffect(() => {
-        if (wallet === "") {
-            setOwnTokens([]);
-            setOwnPositiveTokens([]);
-            setChecked(false);
-            setBonus(false);
-        }
-    }, [wallet]);
+    }, [rewardCheckerContext.ownTokens, rewardCheckerContext.checked]);
     useEffect(() => {
         document.title = "KW | Reward Checker";
     }, []);
     const onSearch = (value) => {
-        if (wallet !== "") {
+        if (rewardCheckerContext.wallet !== "") {
             setLoader(true);
-            setChecked(true);
-            setOwnTokens([]);
-            setOwnPositiveSS1(false);
-            setOwnPositiveSS2(false);
-            setOwnPositiveTokens([]);
-            setBonus(false);
-            axios
-                .get(`https://api-v2-mainnet.paras.id/token?creator_id=kamwoo.near&owner_id=${value}&collection_id=its-fine-by-kamwoonear`)
-                .then((res) => {
-                    if (res.data.data.results.length !== 0) {
-                        res.data.data.results.forEach((r) => {
-                            if (r.metadata.copies < 2) {
-                                setOwnTokens((token) => [...token, r]);
-                            }
-                        });
-                    }
-                })
-                .catch((err) => console.log(err));
-            axios
-                .get(`https://api-v2-mainnet.paras.id/token?creator_id=kamwoo.near&owner_id=${value}&collection_id=event-by-kw-by-kamwoonear`)
-                .then((res) => {
-                    if (res.data.data.results.length !== 0) {
-                        res.data.data.results.forEach((r) => {
-                            if (r.metadata.copies < 2) {
-                                const ownDJ = DJ.find((token) => token === r.token_series_id);
-                                if (ownDJ !== undefined) {
-                                    setRewardSet("");
-                                    setBonus(true);
-                                }
-                            }
-                        });
-                    }
-                })
-                .catch((err) => console.log(err));
+            rewardCheckerContext.fetchOwner(value);
         } else {
             setLoader(true);
-            setChecked(true);
+            rewardCheckerContext.setChecked(true);
         }
     };
     return (
@@ -120,34 +37,34 @@ const WTChecker = () => {
                     onSearch={(e) => {
                         onSearch(e);
                     }}
-                    onChange={(e) => setWallet(e.target.value.toLowerCase())}
+                    onChange={(e) => rewardCheckerContext.setWallet(e.target.value.toLowerCase())}
                     enterButton
-                    value={wallet}
+                    value={rewardCheckerContext.wallet}
                 />
-                {wallet !== "" && checked === true && <Divider className="wt-divider" />}
-                {wallet === "" && checked === true && <Divider className="wt-divider" />}
+                {rewardCheckerContext.wallet !== "" && rewardCheckerContext.checked === true && <Divider className="wt-divider" />}
+                {rewardCheckerContext.wallet === "" && rewardCheckerContext.checked === true && <Divider className="wt-divider" />}
                 {loader && (
                     <div className="loading">
                         <div className="loader"></div>
                     </div>
                 )}
-                {ownTokens.length <= 1 && bonus === false && wallet !== "" && checked === true && !loader && (
+                {rewardCheckerContext.ownTokens.length <= 1 && rewardCheckerContext.bonus === false && rewardCheckerContext.wallet !== "" && rewardCheckerContext.checked === true && !loader && (
                     <>
                         <div className="empty-banner">
                             <Empty />
                         </div>
                     </>
                 )}
-                {ownTokens.length === 0 && bonus === false && wallet === "" && checked === true && !loader && (
+                {rewardCheckerContext.ownTokens.length === 0 && rewardCheckerContext.bonus === false && rewardCheckerContext.wallet === "" && rewardCheckerContext.checked === true && !loader && (
                     <>
                         <div className="empty-banner">
                             <Empty />
                         </div>
                     </>
                 )}
-                {(ownTokens.length >= 2 || bonus === true) && wallet !== "" && checked === true && !loader && (
+                {(rewardCheckerContext.ownTokens.length >= 2 || rewardCheckerContext.bonus === true) && rewardCheckerContext.wallet !== "" && rewardCheckerContext.checked === true && !loader && (
                     <div className="reward-img-container">
-                        <WTRewards reward={rewardSet} bonus={bonus} />
+                        <WTRewards reward={rewardCheckerContext.rewardSet} bonus={rewardCheckerContext.bonus} />
                     </div>
                 )}
             </div>

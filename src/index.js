@@ -4,12 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HodlProvider } from "./store/hodlContext";
+import { RewardCheckerProvider } from "./store/rewardChecker";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <BrowserRouter>
         <HodlProvider>
-            <App />
+            <RewardCheckerProvider>
+                <App />
+            </RewardCheckerProvider>
         </HodlProvider>
     </BrowserRouter>
 );
