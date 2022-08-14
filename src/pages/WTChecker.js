@@ -64,7 +64,7 @@ const WTChecker = () => {
                 )}
                 {(rewardCheckerContext.ownTokens.length >= 2 || rewardCheckerContext.bonus === true) && rewardCheckerContext.wallet !== "" && rewardCheckerContext.checked === true && !loader && (
                     <div className="reward-img-container">
-                        <WTRewards reward={rewardCheckerContext.rewardSet} bonus={rewardCheckerContext.bonus} />
+                        <WTRewards />
                     </div>
                 )}
             </div>
