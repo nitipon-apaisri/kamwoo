@@ -49,6 +49,15 @@
             }
         }
     }
+    .hold-container {
+        .table-wrapper {
+            .search-table {
+                input {
+                    width: 240px;
+                }
+            }
+        }
+    }
 }
 @media screen and (max-width: 480px) {
     .wt-checker {
@@ -86,6 +95,17 @@
             }
         }
     }
+    .hold-container {
+        .table-wrapper {
+            .search-table {
+                display: block;
+                input {
+                    margin-top: 8px;
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -106,6 +126,11 @@
                     }
                 }
             }
+        }
+    }
+    .hold-container {
+        .ant-image {
+            margin-top: 8px;
         }
     }
 }

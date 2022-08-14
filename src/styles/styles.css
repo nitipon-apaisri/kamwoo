@@ -98,6 +98,7 @@ span.its-fine-highlight {
   max-width: 960px;
   width: 100%;
   min-height: 100vh;
+  padding: 24px;
 }
 .hold-container .loader-wrapper {
   display: flex;
@@ -166,6 +167,9 @@ span.its-fine-highlight {
     width: 252px;
     height: 252px;
   }
+  .hold-container .table-wrapper .search-table input {
+    width: 240px;
+  }
 }
 @media screen and (max-width: 480px) {
   .wt-checker {
@@ -189,6 +193,13 @@ span.its-fine-highlight {
     width: 200px;
     height: 200px;
   }
+  .hold-container .table-wrapper .search-table {
+    display: block;
+  }
+  .hold-container .table-wrapper .search-table input {
+    margin-top: 8px;
+    width: 100%;
+  }
 }
 @media screen and (max-width: 400px) {
   .info-container .reward-set .info-block .info-img {
@@ -197,6 +208,9 @@ span.its-fine-highlight {
   .info-container .reward-set-1 .get-rewards .info-block .info-img {
     width: 160px;
     height: 160px;
+  }
+  .hold-container .ant-image {
+    margin-top: 8px;
   }
 }
 h1,
@@ -274,9 +288,9 @@ body .ant-layout .loading .loader {
   height: 10px;
   border-radius: 50%;
   position: relative;
-  animation: loader07-u5pnrac 1s linear infinite;
+  animation: loader07-ubgsxxd 1s linear infinite;
 }
-@keyframes loader07-u5pnrac {
+@keyframes loader07-ubgsxxd {
   0% {
     box-shadow: 0 -17px 0 0 rgba(245, 2, 137, 0.05), 12px -12px 0 0 rgba(245, 2, 137, 0.1), 17px 0 0 0 rgba(245, 2, 137, 0.2), 12px 12px 0 0 rgba(245, 2, 137, 0.3), 0 17px 0 0 rgba(245, 2, 137, 0.4), -12px 12px 0 0 rgba(245, 2, 137, 0.6), -17px 0 0 0 rgba(245, 2, 137, 0.8), -12px -12px 0 0 #f50289;
   }
