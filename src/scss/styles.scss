@@ -2,6 +2,7 @@
 @import "./WTChecker.scss";
 @import "./info.scss";
 @import "./hold.scss";
+@import "./eventsCalendar.scss";
 @import "./responsive.scss";
 h1,
 h2,
@@ -41,6 +42,18 @@ body {
             }
         }
     }
+    ul {
+        padding-inline-start: 0;
+        li {
+            list-style: none;
+            .ant-badge-status-text {
+                font-size: 12px;
+            }
+            .ant-badge-status-warning {
+                background-color: #f50289 !important;
+            }
+        }
+    }
     .ant-layout {
         background: #fff;
         .ant-layout-header {
@@ -75,9 +88,6 @@ body {
             }
         }
         .ant-layout-footer {
-            // position: absolute;
-            // bottom: 0;
-            // width: 100%;
             background: #f50289;
             h3 {
                 color: #fff;

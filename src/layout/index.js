@@ -11,8 +11,9 @@ const MainLayout = ({ children }) => {
                         <div className="logo" style={{ backgroundImage: `url(./img/kw-logo.png)` }}></div>
                     </Link>
                     <ul>
-                        <Link to="/info">INFO</Link>
-                        <Link to="/holds">HODLS</Link>
+                        <Link to="/events-calendar">Events</Link>
+                        <Link to="/info">Combinations</Link>
+                        <Link to="/holds">Hodls</Link>
                     </ul>
                 </Header>
                 <Content>
