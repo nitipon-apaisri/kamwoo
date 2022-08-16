@@ -41,6 +41,12 @@ body {
                 white-space: nowrap !important;
             }
         }
+        tr {
+            th {
+                padding: 16px !important;
+                color: #555555 !important;
+            }
+        }
     }
     ul {
         padding-inline-start: 0;
@@ -48,11 +54,33 @@ body {
             list-style: none;
             .ant-badge-status-text {
                 font-size: 12px;
+                color: #262626 !important;
+                font-weight: 400;
             }
             .ant-badge-status-warning {
                 background-color: #f50289 !important;
             }
         }
+    }
+    .ant-picker-cell-selected {
+        .ant-picker-calendar-date {
+            background: rgba($color: #f50289, $alpha: 0.1) !important;
+            border-color: #f50289 !important;
+        }
+    }
+    .ant-picker-calendar-date-today {
+        background: rgba($color: #f50289, $alpha: 0.3) !important;
+        border-color: #f50289 !important;
+        .ant-picker-calendar-date-value {
+            color: #f50289 !important;
+        }
+    }
+    .ant-picker-calendar-date-value {
+        color: #c5c5c5 !important;
+    }
+    .ant-radio-button-wrapper-checked {
+        color: #f50289 !important;
+        border-color: #f50289 !important;
     }
     .ant-layout {
         background: #fff;

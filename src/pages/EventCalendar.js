@@ -2,7 +2,7 @@ import MainLayout from "../layout";
 import { Badge, Calendar } from "antd";
 const getListData = (value) => {
     let listData;
-    switch (value.date()) {
+    switch (value.month() === 8 - 1 && value.date()) {
         case 12:
             listData = [
                 {

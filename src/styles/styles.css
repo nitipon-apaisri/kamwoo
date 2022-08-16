@@ -129,7 +129,7 @@ span.its-fine-highlight {
 
 .kw-calendar {
   box-sizing: border-box;
-  max-width: 1024px;
+  max-width: 1240px;
   width: 100%;
   padding: 24px;
 }
@@ -259,6 +259,10 @@ body table td p {
   overflow: hidden !important;
   white-space: nowrap !important;
 }
+body table tr th {
+  padding: 16px !important;
+  color: #555555 !important;
+}
 body ul {
   padding-inline-start: 0;
 }
@@ -267,9 +271,29 @@ body ul li {
 }
 body ul li .ant-badge-status-text {
   font-size: 12px;
+  color: #262626 !important;
+  font-weight: 400;
 }
 body ul li .ant-badge-status-warning {
   background-color: #f50289 !important;
+}
+body .ant-picker-cell-selected .ant-picker-calendar-date {
+  background: rgba(245, 2, 137, 0.1) !important;
+  border-color: #f50289 !important;
+}
+body .ant-picker-calendar-date-today {
+  background: rgba(245, 2, 137, 0.3) !important;
+  border-color: #f50289 !important;
+}
+body .ant-picker-calendar-date-today .ant-picker-calendar-date-value {
+  color: #f50289 !important;
+}
+body .ant-picker-calendar-date-value {
+  color: #c5c5c5 !important;
+}
+body .ant-radio-button-wrapper-checked {
+  color: #f50289 !important;
+  border-color: #f50289 !important;
 }
 body .ant-layout {
   background: #fff;
@@ -307,9 +331,9 @@ body .ant-layout .loading .loader {
   height: 10px;
   border-radius: 50%;
   position: relative;
-  animation: loader07-ubgsyal 1s linear infinite;
+  animation: loader07-ubgsz65 1s linear infinite;
 }
-@keyframes loader07-ubgsyal {
+@keyframes loader07-ubgsz65 {
   0% {
     box-shadow: 0 -17px 0 0 rgba(245, 2, 137, 0.05), 12px -12px 0 0 rgba(245, 2, 137, 0.1), 17px 0 0 0 rgba(245, 2, 137, 0.2), 12px 12px 0 0 rgba(245, 2, 137, 0.3), 0 17px 0 0 rgba(245, 2, 137, 0.4), -12px 12px 0 0 rgba(245, 2, 137, 0.6), -17px 0 0 0 rgba(245, 2, 137, 0.8), -12px -12px 0 0 #f50289;
   }

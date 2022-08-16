@@ -12,7 +12,7 @@ const MainLayout = ({ children }) => {
                     </Link>
                     <ul>
                         <Link to="/events-calendar">Events</Link>
-                        <Link to="/info">Combinations</Link>
+                        <Link to="/info">Mixs</Link>
                         <Link to="/holds">Hodls</Link>
                     </ul>
                 </Header>
